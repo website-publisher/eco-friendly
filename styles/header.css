@@ -83,6 +83,43 @@
     cursor: pointer;
 }
 
+/* Search Results Container */
+.search-results {
+    position: absolute;
+    top: 100%; /* Position below the search bar */
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-results li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-results li:hover {
+    background-color: #f5f5f5;
+}
+
+.search-results li:last-child {
+    border-bottom: none;
+}
+
 .icon-btn {
     font-size: 20px;
     margin-left: 15px;
@@ -198,6 +235,91 @@
 }
 
 .eco-cart #closeCart:hover {
+    background-color: #1f3613; /* Even darker on hover */
+}
+
+/* Wishlist Modal */
+.eco-wishlist .wishlist-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.eco-wishlist .wishlist-modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Wishlist Content */
+.eco-wishlist .wishlist-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
+    width: 350px;
+    border: 2px solid #a3d5a3; /* Light eco green border */
+}
+
+.eco-wishlist .wishlist-content h2 {
+    font-size: 24px;
+    color: #2e4e1a; /* Deep earthy green */
+    border-bottom: 2px solid #a3d5a3;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.eco-wishlist .wishlist-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.eco-wishlist .wishlist-content ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.eco-wishlist .wishlist-content ul li button {
+    background-color: #f5f5f5;
+    border: none;
+    color: #2e4e1a;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.eco-wishlist .wishlist-content ul li button:hover {
+    background-color: #e0e0e0; /* Lighter color on hover */
+}
+
+/* Close Button */
+.eco-wishlist #closeWishlist {
+    background-color: #2e4e1a; /* Darker green */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.eco-wishlist #closeWishlist:hover {
     background-color: #1f3613; /* Even darker on hover */
 }
 

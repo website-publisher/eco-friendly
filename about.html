@@ -33,18 +33,38 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Shop</a></li>
                     <li><a href="about.html" class="active">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
                 <form class="search-bar" role="search">
-                    <input type="search" placeholder="Search products..." aria-label="Search products">
+                    <input type="search" id="searchInput" placeholder="Search products..." aria-label="Search products">
                     <button type="submit" aria-label="Submit search">🔍</button>
                 </form>
 
+                <!-- Search Results Container -->
+                <div class="search-results" id="searchResults">
+                    <ul id="searchResultsList"></ul>
+                </div>
+
                 <a href="login.html" class="icon-btn" aria-label="My Account">👤</a>
-                <a href="#wishlist" class="icon-btn" aria-label="Wishlist">❤️</a>
+
+                <!-- Inside the header-actions div -->
+                <div class="eco-wishlist">
+                    <a href="#wishlist" class="wishlist-link icon-btn" aria-label="Wishlist">
+                        ❤️ <span class="wishlist-count">0</span>
+                    </a>
+
+                    <!-- Wishlist Modal -->
+                    <div class="wishlist-modal" id="wishlistModal">
+                        <div class="wishlist-content">
+                            <h2>Your Wishlist</h2>
+                            <ul id="wishlistItems"></ul>
+                            <button id="closeWishlist">Close</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="eco-cart">
                     <a href="#" class="cart-link icon-btn" aria-label="Shopping Cart">
                         🛒 <span class="cart-count">0</span>
@@ -116,7 +136,7 @@
                     <a href="index.html" class="btn" aria-label="Back to Home">🏡 Back to Home</a>
                 </div>
                 <div class="about-image">
-                    <div class="placeholder">🌍 Your Image Here</div>
+                    <img src="images/eco_store.jpg" alt="Eco Store" class="placeholder">
                     <svg class="eco-svg" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="40" fill="#4CAF50" />
                         <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white"
@@ -174,7 +194,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Shop</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
 

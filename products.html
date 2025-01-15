@@ -33,18 +33,38 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html" class="active">Shop</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
                 <form class="search-bar" role="search">
-                    <input type="search" placeholder="Search products..." aria-label="Search products">
+                    <input type="search" id="searchInput" placeholder="Search products..." aria-label="Search products">
                     <button type="submit" aria-label="Submit search">🔍</button>
                 </form>
 
+                <!-- Search Results Container -->
+                <div class="search-results" id="searchResults">
+                    <ul id="searchResultsList"></ul>
+                </div>
+
                 <a href="login.html" class="icon-btn" aria-label="My Account">👤</a>
-                <a href="#wishlist" class="icon-btn" aria-label="Wishlist">❤️</a>
+
+                <!-- Inside the header-actions div -->
+                <div class="eco-wishlist">
+                    <a href="#wishlist" class="wishlist-link icon-btn" aria-label="Wishlist">
+                        ❤️ <span class="wishlist-count">0</span>
+                    </a>
+
+                    <!-- Wishlist Modal -->
+                    <div class="wishlist-modal" id="wishlistModal">
+                        <div class="wishlist-content">
+                            <h2>Your Wishlist</h2>
+                            <ul id="wishlistItems"></ul>
+                            <button id="closeWishlist">Close</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="eco-cart">
                     <a href="#" class="cart-link icon-btn" aria-label="Shopping Cart">
                         🛒 <span class="cart-count">0</span>
@@ -100,7 +120,7 @@
                     <p class="product-price">₹800</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="1" data-name="Bhumi - Terracotta Clay Water bottle - 1L" data-price="800" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="1" data-name="Bhumi - Terracotta Clay Water bottle - 1L" data-price="800" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -115,7 +135,7 @@
                     <p class="product-price">₹2000</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="2" data-name="Bamboo Wired Mouse Mini Optical USB Interface (Orange)" data-price="2000" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="2" data-name="Bamboo Wired Mouse Mini Optical USB Interface (Orange)" data-price="2000" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -135,7 +155,7 @@
                     <p class="product-price">₹300</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="3" data-name="Handcrafted Terracotta T’ Time Cups - Set of 2, 350ml" data-price="300" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="3" data-name="Handcrafted Terracotta T’ Time Cups - Set of 2, 350ml" data-price="300" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -153,7 +173,7 @@
                     <p class="product-price">₹900</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="4" data-name="'LIT'le Diwali Delights" data-price="900" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="4" data-name="'LIT'le Diwali Delights" data-price="900" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -171,7 +191,7 @@
                     <p class="product-price">₹7000</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="5" data-name="Serene Splendour Gift Hamper" data-price="7000" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="5" data-name="Serene Splendour Gift Hamper" data-price="7000" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -189,7 +209,7 @@
                     <p class="product-price">₹4000</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="6" data-name="Festival of Lights Gift Hamper" data-price="4000" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="6" data-name="Festival of Lights Gift Hamper" data-price="4000" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -207,7 +227,7 @@
                     <p class="product-price">₹1000</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="7" data-name="Manthan Porcelain Mug - Multicolour, Churn" data-price="1000" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="7" data-name="Manthan Porcelain Mug - Multicolour, Churn" data-price="1000" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -231,7 +251,7 @@
                     <p class="product-price">₹1000</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="8" data-name="Manthan Porcelain Mug - Multicolour, Ocean" data-price="1000" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="8" data-name="Manthan Porcelain Mug - Multicolour, Ocean" data-price="1000" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <div class="product">
@@ -258,7 +278,7 @@
                     <p class="product-price">₹2000</p>
                     <div class="product-actions">
                         <button class="btn-add-to-cart" data-id="9" data-name="Manthan Porcelain Mugs - Set of 2, Multicolour, Churn & Ocean" data-price="2000" aria-label="Add to Cart">Add to Cart</button>
-                        <button class="btn-wishlist" aria-label="Add to Wishlist">❤️</button>
+                        <button class="btn-add-to-wishlist" data-id="9" data-name="Manthan Porcelain Mugs - Set of 2, Multicolour, Churn & Ocean" data-price="2000" aria-label="Add to Wishlist">❤️</button>
                     </div>
                 </div>
                 <!-- Add more products as needed -->
@@ -282,7 +302,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Shop</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
 
