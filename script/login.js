@@ -2,11 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector(".login-form");
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
+    const USERS_KEY = "ecoStoreUsers";
+    const CURRENT_USER_KEY = "ecoStoreCurrentUser";
 
     loginForm.addEventListener("submit", (event) => {
         event.preventDefault(); // Prevent the form from submitting the traditional way
 
-        const email = emailInput.value.trim();
+        const email = emailInput.value.trim().toLowerCase();
         const password = passwordInput.value.trim();
 
         // Simple validation
@@ -20,16 +22,42 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Here you can implement your login logic (e.g., API call)
-        // For demonstration purposes, we'll simulate a successful login
-        if (email === "user@example.com" && password === "password123") {
-            alert("Login successful!");
-            // Redirect to another page, e.g., dashboard
-            window.location.href = "../index.html";
-        } else {
+        const users = getUsers();
+        const matchedUser = users.find(
+            (user) => user.email === email && user.password === password
+        );
+
+        if (!matchedUser) {
             alert("Invalid email or password. Please try again.");
+            return;
         }
+
+        localStorage.setItem(
+            CURRENT_USER_KEY,
+            JSON.stringify({
+                name: matchedUser.name,
+                email: matchedUser.email,
+                loggedInAt: new Date().toISOString()
+            })
+        );
+
+        alert("Login successful! Welcome back, " + matchedUser.name + ".");
+        window.location.href = "index.html";
     });
+
+    function getUsers() {
+        const storedUsers = localStorage.getItem(USERS_KEY);
+        if (!storedUsers) {
+            return [];
+        }
+
+        try {
+            const parsedUsers = JSON.parse(storedUsers);
+            return Array.isArray(parsedUsers) ? parsedUsers : [];
+        } catch (error) {
+            return [];
+        }
+    }
 
     function validateEmail(email) {
         // Simple email regex for validation

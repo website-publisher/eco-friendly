@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
+    const USERS_KEY = "ecoStoreUsers";
 
     registerForm.addEventListener("submit", (event) => {
         event.preventDefault(); // Prevent the form from submitting the traditional way
@@ -27,13 +28,42 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Here you can implement your registration logic (e.g., API call)
-        // For demonstration purposes, we'll simulate a successful registration
+        const users = getUsers();
+        const normalizedEmail = email.toLowerCase();
+
+        if (users.some((user) => user.email === normalizedEmail)) {
+            alert("An account with this email already exists. Please log in.");
+            window.location.href = "login.html";
+            return;
+        }
+
+        users.push({
+            name,
+            email: normalizedEmail,
+            password,
+            createdAt: new Date().toISOString()
+        });
+
+        localStorage.setItem(USERS_KEY, JSON.stringify(users));
         alert("Registration successful! Welcome, " + name + "!");
         
         // Redirect to login page after successful registration (optional)
         window.location.href = "login.html"; // Updated path to the login page
     });
+
+    function getUsers() {
+        const storedUsers = localStorage.getItem(USERS_KEY);
+        if (!storedUsers) {
+            return [];
+        }
+
+        try {
+            const parsedUsers = JSON.parse(storedUsers);
+            return Array.isArray(parsedUsers) ? parsedUsers : [];
+        } catch (error) {
+            return [];
+        }
+    }
 
     function validateEmail(email) {
         // Simple email regex for validation
