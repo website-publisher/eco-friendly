@@ -105,6 +105,115 @@
     color: #666;
 }
 
+#home .impact-metrics {
+    margin: 10px 0 30px;
+    padding: 28px 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e8f6ec 0%, #f7fff8 55%, #e2f2ea 100%);
+    border: 1px solid #d2ead8;
+    box-shadow: 0 8px 24px rgba(40, 96, 66, 0.12);
+    text-align: center;
+}
+
+#home .impact-metrics h2 {
+    margin: 0 0 8px;
+    color: #174a2d;
+    font-size: 32px;
+}
+
+#home .impact-subtitle {
+    margin: 0 0 20px;
+    color: #3b5d49;
+    font-size: 16px;
+}
+
+#home .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+#home .metric-card {
+    background: #ffffff;
+    border: 1px solid #d5e9da;
+    border-radius: 10px;
+    padding: 16px 10px;
+}
+
+#home .metric-value {
+    margin: 0;
+    color: #0f5f3d;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#home .metric-label {
+    margin: 6px 0 0;
+    color: #496652;
+    font-size: 14px;
+}
+
+#home .testimonials {
+    margin: 8px 0 30px;
+    padding: 28px 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #d8e7df;
+    box-shadow: 0 8px 22px rgba(35, 66, 49, 0.08);
+}
+
+#home .testimonials h2 {
+    margin: 0;
+    text-align: center;
+    color: #1d4e34;
+    font-size: 32px;
+}
+
+#home .testimonials-subtitle {
+    margin: 8px 0 20px;
+    text-align: center;
+    color: #567461;
+    font-size: 16px;
+}
+
+#home .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+#home .testimonial-card {
+    border: 1px solid #d5e6da;
+    border-radius: 10px;
+    background: #f8fcf9;
+    padding: 16px;
+}
+
+#home .testimonial-quote {
+    margin: 0;
+    color: #30543f;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#home .testimonial-author {
+    margin: 10px 0 0;
+    color: #1f6f53;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#home .reveal-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+#home .reveal-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Products Preview Section */
 #home .products-preview {
     text-align: center;
@@ -217,6 +326,68 @@
     transform: scale(1.05);
 }
 
+#home .home-faq {
+    margin-top: 28px;
+    padding: 28px 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #d7e6de;
+    box-shadow: 0 8px 22px rgba(35, 66, 49, 0.08);
+}
+
+#home .home-faq h2 {
+    margin: 0 0 16px;
+    text-align: center;
+    color: #1d4e34;
+    font-size: 30px;
+}
+
+#home .faq-list {
+    max-width: 880px;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+}
+
+#home .faq-item {
+    border: 1px solid #d5e4db;
+    border-radius: 10px;
+    background: #f9fcfa;
+    overflow: hidden;
+}
+
+#home .faq-question {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #27513a;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+#home .faq-icon {
+    color: #1f6f53;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#home .faq-answer {
+    padding: 0 16px 14px;
+    color: #496652;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#home .faq-answer p {
+    margin: 0;
+}
+
 /* About Teaser Section */
 #home .about-teaser {
     margin-top: 30px;
@@ -248,6 +419,14 @@
         width: calc(50% - 20px); /* Two products per row on tablet */
     }
 
+    #home .metrics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #home .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
     #home .hero h2 {
         font-size: 30px; /* Responsive font size */
     }
@@ -260,5 +439,9 @@
 @media (max-width: 480px) {
     .product {
         width: 100%; /* Full width for mobile */
+    }
+
+    #home .metrics-grid {
+        grid-template-columns: 1fr;
     }
 }

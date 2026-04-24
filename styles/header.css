@@ -191,6 +191,122 @@
     font-size: 18px;
 }
 
+.eco-cart .cart-content ul li.cart-empty {
+    justify-content: center;
+    color: #5f6f5f;
+    font-size: 15px;
+    padding: 8px 0;
+}
+
+.eco-cart .cart-content ul li.cart-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    background: #f7fbf7;
+    border: 1px solid #d6e9d6;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.eco-cart .cart-item-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.eco-cart .cart-item-name,
+.eco-cart .cart-item-price,
+.eco-cart .cart-item-total {
+    margin: 0;
+}
+
+.eco-cart .cart-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #264626;
+}
+
+.eco-cart .cart-item-price {
+    font-size: 12px;
+    color: #587058;
+}
+
+.eco-cart .cart-item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.eco-cart .cart-item-qty {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #b7d7b7;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.eco-cart .cart-item-qty button {
+    margin-top: 0;
+    min-width: 28px;
+    padding: 6px 8px;
+    border-radius: 0;
+    background: #e7f4e7;
+    color: #234323;
+    font-size: 16px;
+}
+
+.eco-cart .cart-item-qty span {
+    min-width: 24px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #274827;
+}
+
+.eco-cart .cart-item-total {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f6f53;
+}
+
+.eco-cart .cart-item-controls > button[data-action='remove'] {
+    margin-top: 0;
+    padding: 6px 10px;
+    font-size: 13px;
+    background: #ffffff;
+    border: 1px solid #b9d7b9;
+    color: #2e4e1a;
+}
+
+.eco-cart .cart-shipping-summary {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+.eco-cart #cartShippingMessage {
+    margin: 0 0 6px;
+    font-size: 13px;
+    color: #2f4d2f;
+}
+
+.eco-cart .shipping-progress {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background: #deedde;
+    overflow: hidden;
+}
+
+.eco-cart .shipping-progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #3b9158, #7cbf54);
+    transition: width 0.25s ease;
+}
+
 .eco-cart .cart-content ul li button {
     background-color: #f5f5f5;
     border: none;
@@ -493,4 +609,40 @@
     .cart-content {
         width: 90%;
     }
+}
+
+.eco-toast-root {
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.eco-toast {
+    min-width: 210px;
+    max-width: 320px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    transform: translateY(8px);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.eco-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.eco-toast-success {
+    background: #1f6f53;
+}
+
+.eco-toast-info {
+    background: #2e4e1a;
 }

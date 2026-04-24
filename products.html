@@ -104,6 +104,37 @@
         <section id="products">
             <h2>Our Products</h2>
 
+            <div class="products-toolbar" aria-label="Product controls">
+                <div class="toolbar-group">
+                    <label for="productsFilterInput">Search products</label>
+                    <input type="search" id="productsFilterInput" placeholder="Type a product name..." aria-label="Filter products by name">
+                </div>
+                <div class="toolbar-group">
+                    <label for="productsSortSelect">Sort by</label>
+                    <select id="productsSortSelect" aria-label="Sort products">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                    </select>
+                </div>
+                <div class="toolbar-group">
+                    <label for="productsPriceFilter">Price range</label>
+                    <select id="productsPriceFilter" aria-label="Filter products by price range">
+                        <option value="all">All prices</option>
+                        <option value="0-999">Under ₹1000</option>
+                        <option value="1000-2999">₹1000 to ₹2999</option>
+                        <option value="3000-999999">₹3000 and above</option>
+                    </select>
+                </div>
+                <button type="button" class="toolbar-reset" id="productsResetFilters">Reset</button>
+            </div>
+
+            <div class="active-filters" id="productsActiveFilters" aria-live="polite"></div>
+
+            <p class="products-result-count" id="productsResultCount" aria-live="polite"></p>
+            <p class="products-empty-state" id="productsEmptyState" hidden>No products match your current filters.</p>
+
             <div class="product-list">
                 <div class="product">
                     <div class="product-gallery">
